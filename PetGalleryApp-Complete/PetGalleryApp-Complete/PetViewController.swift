@@ -23,26 +23,20 @@ class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     tableView.tableFooterView = UIView(frame: .zero)
     
-    // Create pet instances to fill our table
-    let pet1 = Pet(petName: "Cassie", petWeight: 8, petPhoto: UIImage(named: "Cassie")!)
-    let pet2 = Pet(petName: "Hopper", petWeight: 4, petPhoto: UIImage(named: "Hopper.jpg")!)
-    let pet3 = Pet(petName: "Max", petWeight: 5, petPhoto: UIImage(named: "Max")!)
-    let pet4 = Pet(petName: "Marshmello", petWeight: 11, petPhoto: UIImage(named: "Marshmello")!)
-    let pet5 = Pet(petName: "Fluffy", petWeight: 6, petPhoto: UIImage(named: "Fluffy")!)
-    let pet6 = Pet(petName: "Skittle", petWeight: 10, petPhoto: UIImage(named: "Skittle")!)
-    
-    // Append all pets to the petsArray
-    petsArray.append(pet1)
-    petsArray.append(pet2)
-    petsArray.append(pet3)
-    petsArray.append(pet4)
-    petsArray.append(pet5)
-    petsArray.append(pet6)
+  //  Append all pets to the petsArray
+    self.petsArray = [
+      Pet(petName: "Cassie", petWeight: 8, petPhoto: UIImage(named: "Cassie")!),
+      Pet(petName: "Hopper", petWeight: 4, petPhoto: UIImage(named: "Hopper.jpg")!),
+      Pet(petName: "Max", petWeight: 5, petPhoto: UIImage(named: "Max")!),
+      Pet(petName: "Marshmello", petWeight: 11, petPhoto: UIImage(named: "Marshmello")!),
+      Pet(petName: "Fluffy", petWeight: 6, petPhoto: UIImage(named: "Fluffy")!),
+      Pet(petName: "Skittle", petWeight: 10, petPhoto: UIImage(named: "Skittle")!)
+    ]
     
   }
   
-  
-  
+
+
   // MARK: - Table view data source
   
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -56,12 +50,15 @@ class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
   
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PetCell
     
-    //Assign Pet values with data from the petsArray
-    cell.petNameLabel.text = petsArray[indexPath.row].name
-    cell.petWeightLabel.text = "\(petsArray[indexPath.row].weight!) lbs."
-    cell.petImageView.image = petsArray[indexPath.row].photo
+      
+      //Assign Pet values with data from the petsArray
+      cell.petNameLabel.text = petsArray[indexPath.row].name
+      cell.petWeightLabel.text = "\(petsArray[indexPath.row].weight!) lbs."
+      cell.petImageView.image = petsArray[indexPath.row].photo
+ 
     
     // Configure the cell...
     return cell
@@ -97,6 +94,9 @@ class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
       detailVC.selectedPet?.weight = self.selectedPet?.weight
       detailVC.selectedPet?.photo = self.selectedPet?.photo
     }
+    
+    // refresh table view data after selection
+    self.tableView.reloadData()
     
   }
   

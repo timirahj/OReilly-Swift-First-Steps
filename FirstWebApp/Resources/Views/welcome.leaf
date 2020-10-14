@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <h1>Welcome To Swift First Steps!</h1>
+    </head>
+    
+    <body>
+     
+    <img src="https://media.giphy.com/media/F9hQLAVhWnL56/giphy.gif">
+        
+       <!-- add button -->
+    <button type="button" onclick="alert('Hey! You did it!')">Click me!</button>
+    
+    </body>
+</html>

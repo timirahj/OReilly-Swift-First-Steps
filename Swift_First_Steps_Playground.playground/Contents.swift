@@ -11,7 +11,6 @@
 import UIKit
 
 var str = "Hello, playground"
-
 var comment = "Great Job!"
 
 // Let's start by trying some expressions!
@@ -27,6 +26,7 @@ print("This should run properly")
 // Declaring a Constant
 
 let myFirstName: String = "Timirah"
+let myLastName: String = "James"
 
 myFirstName
 
@@ -35,6 +35,8 @@ print(myFirstName)
 
 
 //Declaring a Variable
+
+var childAge: Int?
 
 var myAgeNow:Int = 23
 var yourAgeNow:Int = 60
@@ -68,13 +70,13 @@ var username: String! = "User1"
 
 //Arrays
 
-var groceryList: [String] = ["eggs", "milk"]
+var groceryList: [Any] = ["eggs", "milk"]
 print(groceryList)
 
 
-groceryList.append("juice")
-groceryList.insert("bread", at: 2)
-groceryList.count
+//groceryList.append("lemons")
+//groceryList.insert("chips", at: 2)
+//groceryList.count
 
 
 
@@ -98,12 +100,15 @@ nameSports()
 
 func createUser(name:String, age: Int){
   
-  print("New user: \(name) vs. \(age)")
+  print("New user: \(name), age: \(age)")
 }
 
 
 createUser(name: "Jane", age: 18)
 createUser(name: "Keisha", age: 11)
+
+
+
 
 func getSum(firstNumber: Int, secondNumber: Int) -> Int{
   
@@ -114,38 +119,45 @@ func getSum(firstNumber: Int, secondNumber: Int) -> Int{
 
 
 getSum(firstNumber: 25, secondNumber: 100)
+
 var x = getSum(firstNumber: 10, secondNumber: 80)
 
 x
 
 
 
+
 // if let
 
-func greetStudent() {
-  if let studentName = username {
-    print(studentName + " is a member")
-  }
-}
+//func greetStudent() {
+ // if let studentName = username {
+//    print(studentName + " is a member")
+//  }
+//}
 
 
 //  guard let
  
-/*
  func greetStudent() {
-  guard let studentName = username else {
-    return
-  }
- */
-  
-  
+  // return and exit the scope if it fails
+  guard let studentName = username else { return }
+}
+
+
+
+
+
+
   
   //Dictionaries (key-value pairings)
-  var students = ["Name" : "Value"]
+  var students = ["Name" : "Timirah"]
+
+  students["Name"]
   
-  var capitols = ["California" : "Los Angeles", "Georgia" : "Atlanta", "Florida" : "Miami", "Texas" : "Austin"]
+  var capitals = ["California" : "Los Angeles", "Georgia" : "Atlanta", "Florida" : "Miami", "Texas" : "Austin"]
   
-  capitols["California"]
+  capitals["California"]
   
-  capitols["California"] = "LA"
+  capitals["California"] = "LA"
+
 // Encodable / Decodable
